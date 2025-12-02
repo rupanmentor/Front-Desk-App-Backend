@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./Database/dbConfig.js";
+import authRoute from "./Routers/authRoute.js"
 
 dotenv.config();
 
@@ -15,6 +16,8 @@ connectDB();
 app.get("/", (req, res) => {
   res.status(200).send("elcome to backend");
 });
+
+app.use("/api/auth",authRoute)
 
 const port = process.env.PORT || 5000;
 
