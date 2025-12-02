@@ -3,6 +3,8 @@ import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./Database/dbConfig.js";
 import authRoute from "./Routers/authRoute.js"
+import serviceRoute from "./Routers/serviceRoute.js"
+import bookRoute from "./Routers/bookingRoute.js"
 
 dotenv.config();
 
@@ -18,6 +20,9 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/auth",authRoute)
+app.use("/api/service",serviceRoute)
+app.use("/api/booking",bookRoute)
+
 
 const port = process.env.PORT || 5000;
 
